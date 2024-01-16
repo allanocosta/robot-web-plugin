@@ -1,0 +1,28 @@
+schema-version: v2
+kind: plugin
+metadata:
+  name: robot-web-plugin
+  display-name: robot-web-plugin
+  description: Plugin para testes web com a library browser
+  version: 0.0.1
+  picture: plugin.png
+spec:
+  type: app
+  compatibility:
+    - python
+  docs:
+    pt-br: docs/pt-br/docs.md
+    en-us: docs/en-us/docs.md
+  single-use: False
+  technologies: # Ref: https://docs.stackspot.com/create-use/create-content/yaml-files/plugin-yaml/#technologies-1
+    - Python
+  stk-projects-only: false
+  
+  hooks:
+    - type: run
+      trigger: after-render
+      commands:
+        - pip install robotframework
+        - pip install robotframework-browser
+        - pip install robotframework-jsonlibrary
+        - rfbrowser init
