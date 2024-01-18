@@ -1,6 +1,6 @@
 -d ./log
 -x output-xunit.xml
--v env:DEV
 --listener RetryFailed
 -e SkipORFix-*
--v headless:True
+-v ENV:DEV
+-v HEADLESS:True

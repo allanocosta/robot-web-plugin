@@ -1,6 +1,6 @@
 -d ./log
 -x output-xunit.xml
--v env:STG
 --listener RetryFailed
 -e SkipORFix-*
--v headless:True
+-v ENV:STG
+-v HEADLESS:True

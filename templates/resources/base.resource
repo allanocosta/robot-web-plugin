@@ -4,6 +4,7 @@ Documentation       Resource com as keywords gerais do projeto
 Library             Collections
 Library             OperatingSystem
 Library             JSONLibrary
+Library             Browser
 Resource            env.resource
 
 
@@ -15,8 +16,8 @@ Get Fixtures
     RETURN                  ${data}[${METODO}]
 
 Start Session
-    Set Environment         $env
-    New Browser             browser=${BROWSER}      headless=False
+    Set Environment
+    New Browser             browser=${BROWSER}      headless=${HEADLESS}
     New Page                ${BASE_URL}
     Sessionstorage Clear
 

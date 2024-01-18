@@ -3,9 +3,11 @@ Documentation       Configurações de ambiente para os testes.
 
 
 *** Variables ***
+${ENV}              ${EMPTY}
 ${BASE_URL}         http://localhost:8080
 ${API_ENDPOINT}     ${BASE_URL}/v1
 ${BROWSER}          chromium
+${HEADLESS}         False
 ${USER}             ${EMPTY}
 ${PASS}             ${EMPTY}
 ${DB_HOST}          ${EMPTY}
@@ -17,16 +19,15 @@ ${DB_NAME}          ${EMPTY}
 
 *** Keywords ***
 Set Environment
-    [Arguments]             ${env}
-    IF    $env == 'PRD' or $env == 'prd' or $env == 'production' or $env == 'producao' or $env == 'PROD' or $env == 'prod'
+    IF    $ENV == 'PRD' or $ENV == 'prd' or $ENV == 'PROD' or $ENV == 'prod' or $ENV == 'PRODUCTION' or $ENV == 'production'
         Set Production Variables
-    ELSE IF    $env == 'staging' or $env == 'stg' or $env == 'STAGING' or $env == 'STG'
+    ELSE IF    $ENV == 'staging' or $ENV == 'stg' or $ENV == 'STAGING' or $ENV == 'STG'
         Set Staging Variables
-    ELSE IF    $env == 'homologation' or $env == 'hml' or $env == 'HOMOLOGATION' or $env == 'HML'
+    ELSE IF    $ENV == 'homologation' or $ENV == 'hml' or $ENV == 'HOMOLOGATION' or $ENV == 'HML'
         Set Homologation Variables
-    ELSE IF    $env == 'quality' or $env == 'qa' or $env == 'QUALITY' or $env == 'QA'
+    ELSE IF    $ENV == 'quality' or $ENV == 'qa' or $ENV == 'QUALITY' or $ENV == 'QA'
         Set Quality Variables
-    ELSE IF    $env == 'development' or $env == 'dev' or $env == 'DEVELOPMENT' or $env == 'DEV'
+    ELSE IF    $ENV == 'development' or $ENV == 'dev' or $ENV == 'DEVELOPMENT' or $ENV == 'DEV'
         Set Development Variables
     ELSE
         Set Development Variables

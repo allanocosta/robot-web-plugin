@@ -1,6 +1,6 @@
 -d ./log
 -x output-xunit.xml
--v env:PRD
 --listener RetryFailed
 -e SkipORFix-*
--v headless:True
+-v ENV:PRD
+-v HEADLESS:True
