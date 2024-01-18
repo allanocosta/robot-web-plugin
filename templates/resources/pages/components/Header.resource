@@ -1,6 +1,8 @@
 *** Settings ***
 Documentation       Resource com as keywords do header da aplicação
 
+Library             Browser
+
 
 *** Variables ***
 ${NAV_BAR}      css=.navbar-nav > li
